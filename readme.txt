@@ -2,8 +2,8 @@
 Contributors: Jo Cox Design
 Tags: faq
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 1.0
+Tested up to: 3.9.1
+Stable tag: 1.01
 License: GPLv2 or later
 
 JCD Simple FAQ adds an FAQ custom post type, short code and widget.
@@ -26,3 +26,5 @@ To make it easy for theme developers to style the output, questions have been gi
 
 == Changelog ==
 
+1.1 - Fixed incorrect closing h4 tag in widget.
+1.1 - Removed featured image from FAQ post type

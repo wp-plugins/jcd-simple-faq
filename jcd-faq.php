@@ -1,9 +1,9 @@
 <?php
    /*
    Plugin Name: JCD Simple FAQ
-   Plugin URI: http:/www.jocoxdesign.co.uk/wordpress-plugins/jcd-simple-faq
+   Plugin URI: http://www.jocoxdesign.co.uk/wordpress-plugins/jcd-simple-faq
    Description: Not everyone wants a fancy JQuery/Accordion FAQ system, so this simple plugin allows you to add as many questions and answers as you like and then display them straight on the page, via a short code, with minimal styling. Comes with 'Latest FAQ' widget.
-   Version: 1.0
+   Version: 1.1
    Author: Jo Cox Design
    Author URI: http://www.jocoxdesign.co.uk
    License: GPL2
@@ -13,18 +13,18 @@ add_action('init', function() {
 
 	$labels = array(
 		'name' => _x('FAQ', 'post type general name'),
-		'singular_name' => _x('Item', 'post type singular name'),
-		'add_new' => _x('Add New Item', 'Item'),
-		'add_new_item' => __('Add New Item'),
-		'edit_item' => __('Edit Item'),
-		'new_item' => __('New Item'),
-		'all_items' => __('All FAQ Items'),
-		'view_item' => __('View Item'),
-		'search_items' => __('Search FAQ'),
-		'not_found' => __('No FAQ found'),
-		'not_found_in_trash' => __('No FAQ found in Trash'),
+		'singular_name' => _x('FAQ', 'post type singular name'),
+		'add_new' => _x('Add New FAQ', 'FAQ'),
+		'add_new_item' => __('Add New FAQ'),
+		'edit_item' => __('Edit FAQ'),
+		'new_item' => __('New FAQ'),
+		'all_items' => __('All FAQs'),
+		'view_item' => __('View FAQ'),
+		'search_items' => __('Search FAQs'),
+		'not_found' => __('No FAQs found'),
+		'not_found_in_trash' => __('No FAQs found in Trash'),
 		'parent_item_colon' => '',
-		'menu_name' => 'FAQ'
+		'menu_name' => 'FAQs'
 	);
 
 	$args = array(
@@ -39,7 +39,7 @@ add_action('init', function() {
 		'has_archive' => true,
 		'hierarchical' => false,
 		'menu_position' => null,
-		'supports' => array('title', 'editor', 'page-attributes', 'thumbnail')
+		'supports' => array('title', 'editor', 'page-attributes')
 	);
 	register_post_type('FAQ', $args);
 });
@@ -107,7 +107,7 @@ class LatestFAQ extends WP_Widget
 	));
 	$faq  = '<div id="faq">';
 	foreach ( $posts as $post ) { 
-		$faq .= sprintf(('<h4 class="question">%1$s</h3><div class="answer">%2$s</div>'),
+		$faq .= sprintf(('<h4 class="question">%1$s</h4><div class="answer">%2$s</div>'),
 			$post->post_title,
 			wpautop($post->post_content)
 		);
